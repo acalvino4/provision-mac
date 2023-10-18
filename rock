@@ -12,11 +12,11 @@ echo_exit() {
 
 [[ $OSTYPE != darwin* ]] && echo_exit "This executable only supports macOS, not $OSTYPE." 1
 
-# Load some functions
-source "$ROCK_DIR"/lib/get-option.sh
-
 # Get installation directory
 ROCK_DIR=$(dirname "$(readlink "$0")")
+
+# Load some functions
+source "$ROCK_DIR"/lib/get-option.sh
 
 # Load specific command
 SUBCOMMAND=$1
