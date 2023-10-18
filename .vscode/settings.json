@@ -1,0 +1,12 @@
+{
+  "editor.defaultFormatter": "foxundermoon.shell-format",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.shellcheck": true
+  },
+  "shellcheck.exclude": ["1091"],
+  "shellcheck.customArgs": ["-s", "bash"],
+  "shellcheck.ignorePatterns": {
+    "config/rock-sudoers": true
+  }
+}

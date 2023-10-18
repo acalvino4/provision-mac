@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -eEuo pipefail
+IFS=$'\n\t'
+
+rock_install() {
+    if [[ $OSTYPE == "darwin"* ]]; then
+        if [[ $EUID -eq 0 ]]; then
+            echo "Global install not supported for MacOS. Please run as non-root user."
+            exit 1
+        fi
+        if [[ ! -v ROCK_DIR ]]; then
+            ROCK_DIR=/usr/local/rock
+            OS=macos
+        fi
+    else
+        echo "Only MacOS installation supported, not $OSTYPE."
+        exit 1
+    fi
+    if [[ -d $ROCK_DIR ]]; then
+        echo "It appears there is already an installation at $ROCK_DIR. Try running 'rock update'; you may be good to go already."
+        exit 1
+    fi
+    git clone https://github.com/acalvino4/provision-mac.git "$ROCK_DIR"
+    "$ROCK_DIR"/rock install
+}
+
+rock_install

@@ -1,0 +1,63 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.foldingImportsByDefault": true,
+  "editor.tabSize": 4,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": true
+  },
+
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "vimrc": "viml"
+  },
+
+  "git.autofetch": true,
+  "git.path": "/usr/local/bin/git",
+
+  "window.restoreWindows": "none",
+
+  "js/ts.implicitProjectConfig.target": "ESNext",
+
+  "html.format.enable": false,
+  "css.format.enable": false,
+  "sass.format.enable": false,
+  "less.format.enable": false,
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "json.format.enable": false,
+
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  }
+}
