@@ -10,7 +10,6 @@ rock_install() {
         fi
         if [[ ! -v ROCK_DIR ]]; then
             ROCK_DIR=/usr/local/rock
-            OS=macos
         fi
     else
         echo "Only MacOS installation supported, not $OSTYPE."

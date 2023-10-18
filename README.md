@@ -11,7 +11,7 @@ This tool supports modern macOS.
 To install, just run this command:
 
 ```bash
-$SHELL <(curl -fsSL 'https://acalvino4/provision-mac/raw/HEAD/installer')
+$SHELL <(curl -fsSL 'https://raw.githubusercontent.com/acalvino4/provision-mac/main/installer')
 ```
 
 Provisioning will take about 5 minutes.
