@@ -9,7 +9,7 @@ rock_install() {
             exit 1
         fi
         if [[ ! -v ROCK_DIR ]]; then
-            ROCK_DIR=/usr/local/rock
+            ROCK_DIR=~/.rock
         fi
     else
         echo "Only MacOS installation supported, not $OSTYPE."
@@ -19,6 +19,8 @@ rock_install() {
         echo "It appears there is already an installation at $ROCK_DIR. Try running 'rock update'; you may be good to go already."
         exit 1
     fi
+    echo "$ROCK_DIR"
+    exit
     git clone https://github.com/acalvino4/provision-mac.git "$ROCK_DIR"
     "$ROCK_DIR"/rock install
 }
