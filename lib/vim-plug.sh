@@ -11,3 +11,12 @@ export VIM_DIR
 set +e
 vim -E -s -u "$ROCK_DIR/config/vimrc" +PlugInstall +qall
 set -e
+
+# Link vim config
+INSTALL_VIMRC=$(get_option vimrc)
+if $INSTALL_VIMRC; then
+    printf '\n' >>~/.vimrc
+    sed -i '' "1s-^-let \$VIM_DIR='$VIM_DIR' \" Managed by rock\n-g" ~/.vimrc
+    sed -i '' "2s-^-source $ROCK_DIR/config/vimrc \" Managed by rock\n-g" ~/.vimrc
+    sed -i '' "3s-^-\" Include your own configurations below this line \" Managed by rock\n-g" ~/.vimrc
+fi

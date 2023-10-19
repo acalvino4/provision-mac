@@ -47,13 +47,15 @@ if ! grep -Fq pdm $ZSHRC; then
     pdm config strategy.save compatible
     pdm config python.use_venv False
     # enable pdm shell completion
-    mkdir "$ZSH_CUSTOM"/plugins/pdm
-    pdm completion zsh >"$ZSH_CUSTOM"/plugins/pdm/_pdm
+    mkdir ~/.oh-my-zsh/custom/plugins/pdm
+    pdm completion zsh >~/.oh-my-zsh/custom/plugins/pdm/_pdm
 fi
 
 # sdkman
 if ! grep -Fq sdkman $ZSHRC; then
     echo "Installing sdkman to manage jvm languages..."
     curl -s "https://get.sdkman.io" | bash
+    set +u
     source "$HOME/.sdkman/bin/sdkman-init.sh"
+    set -u
 fi

@@ -1,4 +1,4 @@
-OMZ_DIR=~/oh-my-zsh
+OMZ_DIR=~/.oh-my-zsh
 
 if [[ ! -d $OMZ_DIR ]]; then
     echo "Installing Oh My Zsh..."
@@ -11,7 +11,7 @@ if [[ ! -d $OMZ_DIR ]]; then
     fi
 else
     echo "Updating Oh My Zsh..."
-    /bin/zsh -i -c "omz update &>/dev/null"
+    echo 'exit' | /bin/zsh -i -c "omz update &>/dev/null"
 fi
 
 /bin/zsh -i -c "omz plugin enable brew git &>/dev/null" || echo

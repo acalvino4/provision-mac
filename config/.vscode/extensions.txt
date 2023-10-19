@@ -6,7 +6,6 @@ DavidAnson.vscode-markdownlint
 eamodio.gitlens
 esbenp.prettier-vscode
 foxundermoon.shell-format
-Kasik96.swift
 ms-azuretools.vscode-docker
 ms-python.python
 ms-python.vscode-pylance

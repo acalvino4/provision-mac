@@ -15,7 +15,7 @@ brew_install() {
 
 # Install desired brew packages
 if [[ $SUBCOMMAND != "install" ]]; then # if stdin is a terminal
-    read -rp "Would you like to install/update/upgrade apt packages (y/n)? " UPGRADE
+    read -rp "Would you like to install/update/upgrade homebrew packages (y/n)? " UPGRADE
 else
     UPGRADE=y
 fi
@@ -23,8 +23,7 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     brew update
 
     # Applications
-    brew_install --cask 1password # Password manager
-    brew_install --cask slack     # Team communication
+    # brew_install --cask slack     # Team communication
     brew_install --cask rectangle # Window snapping
     brew_install --cask gimp      # Powerful, free image editing
     brew_install --cask inkscape  # SVG editor
@@ -47,7 +46,7 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     brew_install --cask brave-browser
     brew_install --cask microsoft-edge
     brew_install --cask firefox
-    brew_install --cask google-chrome
+    # brew_install --cask google-chrome
     brew_install --cask browserstacklocal
     # Version/Package Managers
     brew_install composer # php dependencies
@@ -74,6 +73,7 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     brew_install gmp        # ruby
     brew_install openssl@3  # ruby
     brew_install ruby-build # ruby
+    brew_install nss        # mkcert
 
     brew upgrade
 fi
