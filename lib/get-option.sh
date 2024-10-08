@@ -13,7 +13,7 @@ get_option() {
     if [[ ! -f $CONFIG_FILE ]]; then
         echo "{}" >>$CONFIG_FILE
     fi
-    read -rp "Would you like to rock to install it's $option (y/n)? " choice
+    read -rp "Would you like rock to install it's $option (y/n)? " choice
     if [[ $choice =~ ^[Yy] ]]; then
         choice=true
     else

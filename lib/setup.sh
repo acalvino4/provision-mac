@@ -8,7 +8,8 @@ source "$ROCK_DIR"/lib/brew-followup.sh
 # Additional ddev setup
 mkcert -install
 
-# Link tableplug config
+# Link tableplus config
+# (Once/if they support it)
 
 # Merge vscode settings with user's, if they exist
 VSCODE_SETTINGS="$ROCK_DIR"/config/.vscode/settings.json

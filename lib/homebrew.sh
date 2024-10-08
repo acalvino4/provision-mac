@@ -49,11 +49,14 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     # brew_install --cask google-chrome
     brew_install --cask browserstacklocal
     # Version/Package Managers
+    brew_install corepack # js package manager manager
     brew_install composer # php dependencies
-    brew_install pnpm     # javascript version and dependencies (node)
-    brew_install pyenv    # python versions
-    brew_install pdm      # python dependencies
+    brew_install uv       # javascript version and dependencies (node)
     brew_install rbenv    # ruby versions
+    # Runtimes
+    brew_install node # js runtime
+    brew_install deno # js runtime
+    brew_install php  # php runtime
     # Misc. Tools
     brew_install htop       # Colorized system monitoring
     brew_install wget       # An alternative to curl
@@ -62,13 +65,7 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     brew_install shellcheck # A linter for shell scripts
     brew_install shfmt      # A formatter for shell scripts
     # Dependencies
-    brew_install node       # pnpm
-    brew_install openssl    # pyenv
-    brew_install sqlite3    # pyenv
-    brew_install xz         # pyenv
-    brew_install zlib       # pyenv
-    brew_install tcl-tk     # pyenv
-    brew_install readline   # pyenv, rbenv
+    brew_install readline   # rbenv
     brew_install libyaml    # ruby
     brew_install gmp        # ruby
     brew_install openssl@3  # ruby

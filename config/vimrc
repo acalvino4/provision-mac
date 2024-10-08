@@ -37,6 +37,9 @@ set scrolloff=10
 " Do not wrap lines. Allow long lines to extend as far as the line goes.
 set nowrap
 
+" Make wrap lines when using arrow keys at the beginning/end
+set whichwrap+=<,>,h,l,[,]
+
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 

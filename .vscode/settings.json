@@ -2,7 +2,7 @@
   "editor.defaultFormatter": "foxundermoon.shell-format",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.shellcheck": true
+    "source.fixAll.shellcheck": "explicit"
   },
   "shellcheck.exclude": ["1091"],
   "shellcheck.customArgs": ["-s", "bash"],
