@@ -37,6 +37,11 @@ if [[ ! -f /usr/local/bin/updatedb ]]; then
     ln -s /usr/libexec/locate.updatedb /usr/local/bin/updatedb
 fi
 
+echo "Aliasing 'python' to 'python3'"
+if [[ ! -f /usr/local/bin/python ]]; then
+    ln -s /usr/local/bin/python3 /usr/local/bin/python
+fi
+
 echo "Ensuring rock is on PATH..."
 if [[ ! -f /usr/local/bin/rock ]]; then
     ln -s "$ROCK_DIR"/rock /usr/local/bin/rock

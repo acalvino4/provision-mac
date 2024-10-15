@@ -36,12 +36,6 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     brew_install --cask local              # Wordpress
     brew_install drud/ddev/ddev            # Craft
 
-    # brew_install --cask flipper  # React Native debugging
-    # brew tap facebook/fb         # React Native debugging
-    # brew_install idb-companion   # React Native debugging
-    # /usr/bin/pip3 install fb-idb # React Native debugging
-    # ln -fs ~/Library/Python/*/bin/idb /usr/local/bin/idb
-
     # Browsers (for cross-browser testing)
     brew_install --cask brave-browser
     brew_install --cask microsoft-edge
@@ -51,12 +45,13 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     # Version/Package Managers
     brew_install corepack # js package manager manager
     brew_install composer # php dependencies
-    brew_install uv       # javascript version and dependencies (node)
+    brew_install uv       # python project manager
     brew_install rbenv    # ruby versions
     # Runtimes
-    brew_install node # js runtime
-    brew_install deno # js runtime
-    brew_install php  # php runtime
+    brew_install node   # js runtime
+    brew_install deno   # js runtime
+    brew_install php    # php runtime
+    brew_install python # python runtime
     # Misc. Tools
     brew_install htop       # Colorized system monitoring
     brew_install wget       # An alternative to curl
