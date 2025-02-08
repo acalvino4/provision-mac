@@ -24,12 +24,12 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
 
     # Applications
     # brew_install --cask slack     # Team communication
-    brew_install --cask rectangle # Window snapping
-    brew_install --cask gimp      # Powerful, free image editing
-    brew_install --cask inkscape  # SVG editor
-    brew_install --cask figma     # For viewing desings (or making them - I ain't stopping you)
+    brew_install --cask gimp     # Powerful, free image editing
+    brew_install --cask inkscape # SVG editor
+    brew_install --cask figma    # For viewing desings (or making them - I ain't stopping you)
     # Local development
     brew_install --cask visual-studio-code # Your bread and butter
+    brew_install --cask zed                # A next-gen editor
     brew_install --cask android-studio     # Necessary for android apps
     brew_install --cask tableplus          # Friendly RDBMS GUI
     brew_install --cask docker             # Containers, containers, containers...
@@ -43,7 +43,6 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     # brew_install --cask google-chrome
     brew_install --cask browserstacklocal
     # Version/Package Managers
-    brew_install corepack # js package manager manager
     brew_install composer # php dependencies
     brew_install uv       # python project manager
     brew_install rbenv    # ruby versions

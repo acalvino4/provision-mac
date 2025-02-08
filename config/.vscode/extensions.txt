@@ -19,6 +19,7 @@ msjsdiag.vscode-react-native
 neilbrayfield.php-docblocker
 redhat.vscode-yaml
 samverschueren.linter-xo
+tamasfe.even-better-toml
 timonwong.shellcheck
 valeryanm.vscode-phpsab
 XadillaX.viml
