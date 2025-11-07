@@ -45,4 +45,4 @@ Note that these tools will give some false positives - feel free to ignore their
 - Investigate https://github.com/mrzool/bash-sensible and https://github.com/tpope/vim-sensible for possible merging with our configs
 - test vim undo, copy/paste clipboard
 - See if there is a way to include user-specific vim plugins with this setup
-- for interactive runs, if `ubuntu` or `greeneggmedia` needs to be deleted, check whether they have running processes first; this will always be the case when installing to existing system *from* one of these users accounts
+- for interactive runs, if `ubuntu` needs to be deleted, check whether they have running processes first; this will always be the case when installing to existing system *from* one of these users accounts

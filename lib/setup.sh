@@ -1,5 +1,5 @@
 # Install xcode command line tools; required for homebrew, xcode, and maybe some other applications
-xcode-select --install || echo "An error occurred installing xcode tools; proceeding with other steps."
+source "$ROCK_DIR"/lib/xcode.sh
 
 source "$ROCK_DIR"/lib/homebrew.sh
 
@@ -13,7 +13,7 @@ mkcert -install
 
 # Merge vscode settings with user's, if they exist
 VSCODE_SETTINGS="$ROCK_DIR"/config/.vscode/settings.json
-VSCODE_USER_SETTINGS=/Library/"Application Support"/Code/User/settings.json
+VSCODE_USER_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
 if [[ -f $VSCODE_USER_SETTINGS ]]; then
     jq -s '.[0] * .[1]' "$VSCODE_SETTINGS" "$VSCODE_USER_SETTINGS" >/tmp/vscode_settings
     sudo cp /tmp/vscode_settings "$VSCODE_USER_SETTINGS"
