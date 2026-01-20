@@ -21,10 +21,25 @@ else
     sudo mkdir -p "$(dirname "$VSCODE_USER_SETTINGS")"
     sudo cp "$VSCODE_SETTINGS" "$VSCODE_USER_SETTINGS"
 fi
+
 # Install vscode extensions
-while IFS= read -r LINE; do
-    code --install-extension "$LINE"
+echo ""
+echo "Installing VS Code extensions..."
+INSTALLED_EXTENSIONS=$(code --list-extensions)
+while IFS= read -r extension; do
+    [[ -z "$extension" ]] && continue
+    if echo "$INSTALLED_EXTENSIONS" | grep -qi "^${extension}$"; then
+        echo "  ✓ $extension already installed"
+    else
+        echo "  Installing $extension..."
+        if code --install-extension "$extension" >/dev/null 2>&1; then
+            echo "  ✓ $extension installed successfully"
+        else
+            echo "  ⚠️  Failed to install $extension"
+        fi
+    fi
 done <"$ROCK_DIR"/config/.vscode/extensions.txt
+echo "✓ VS Code extensions processed"
 
 # Setup oh-my-zsh & its plugins
 source "$ROCK_DIR"/lib/oh-my-zsh.sh
@@ -34,17 +49,17 @@ source "$ROCK_DIR"/lib/vim-plug.sh
 
 echo "Ensuring updatedb is on PATH"
 if [[ ! -f /usr/local/bin/updatedb ]]; then
-    ln -s /usr/libexec/locate.updatedb /usr/local/bin/updatedb
+    sudo ln -s /usr/libexec/locate.updatedb /usr/local/bin/updatedb
 fi
 
 echo "Aliasing 'python' to 'python3'"
 if [[ ! -f /usr/local/bin/python ]]; then
-    ln -s /usr/local/bin/python3 /usr/local/bin/python
+    sudo ln -s /opt/homebrew/bin/python3 /usr/local/bin/python
 fi
 
 echo "Ensuring rock is on PATH..."
 if [[ ! -f /usr/local/bin/rock ]]; then
-    ln -s "$ROCK_DIR"/rock /usr/local/bin/rock
+    sudo ln -s "$ROCK_DIR"/rock /usr/local/bin/rock
 fi
 
 read -rp "Would you like to reboot (y/n)? " REBOOT

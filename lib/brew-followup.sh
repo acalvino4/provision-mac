@@ -19,3 +19,14 @@ if ! grep -Fq sdkman $ZSHRC; then
     source "$HOME/.sdkman/bin/sdkman-init.sh"
     set -u
 fi
+
+# prioritize /opt/homebrew/bin on PATH
+# shellcheck disable=SC2016
+homebrew_path='# homebrew hoist
+export PATH="${PATH//\/opt\/homebrew\/bin:/}"
+export PATH="/opt/homebrew/bin:$PATH"
+# end homebrew hoist
+'
+if ! grep -Fq "# homebrew hoist" "$ZSHRC"; then
+    echo "$homebrew_path" >>"$ZSHRC"
+fi

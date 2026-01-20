@@ -23,7 +23,9 @@ SUBCOMMAND=$1
 cd "$ROCK_DIR"/bin
 for command in *; do
     if [[ "$command" == "$SUBCOMMAND".sh ]]; then
+        # shellcheck disable=SC1090
         source "$command"
+        exit 0
     fi
 done
 echo_exit "Command '$SUBCOMMAND' not found." 127

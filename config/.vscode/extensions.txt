@@ -17,8 +17,6 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 msjsdiag.vscode-react-native
 neilbrayfield.php-docblocker
-redhat.vscode-yaml
-samverschueren.linter-xo
 tamasfe.even-better-toml
 timonwong.shellcheck
 valeryanm.vscode-phpsab

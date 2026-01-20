@@ -54,7 +54,7 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     brew_install --cask zed                # A next-gen editor
     brew_install --cask android-studio     # Necessary for android apps
     brew_install --cask tableplus          # Friendly RDBMS GUI
-    brew_install --cask docker             # Containers, containers, containers...
+    # brew_install --cask docker             # Containers, containers, containers...
     brew_install --cask local              # Wordpress
     brew_install ddev/ddev/ddev            # Craft
 
@@ -106,22 +106,23 @@ if [[ $UPGRADE =~ ^[Yy] ]]; then
     echo "Upgrading existing packages..."
     brew upgrade
     echo "✓ Homebrew packages updated"
+
+    # Install last 3 dotnet LTS versions
+    echo ""
+    echo "Installing .NET LTS SDKs..."
+    if ! brew tap | grep -q "isen-ng/dotnet-sdk-versions"; then
+        echo "  Adding dotnet-sdk-versions tap..."
+        brew tap isen-ng/dotnet-sdk-versions >/dev/null
+    fi
+
+    # Get the latest 3 LTS major versions (even numbers only)
+    LTS_MAJORS=$(brew search dotnet-sdk | grep -oE 'dotnet-sdk[0-9]+$' | grep -oE '[0-9]+$' | awk '$1 % 2 == 0' | sort -u -n | tail -3)
+
+    # Install each LTS version (latest patch auto-selected)
+    while read -r major; do
+        [[ -z "$major" ]] && continue
+        brew_install --cask "dotnet-sdk${major}"
+    done <<< "$LTS_MAJORS"
+
+    echo "✓ .NET LTS SDKs installed"
 fi
-
-# Install last 3 dotnet LTS versions
-echo "Installing .NET LTS SDKs..."
-if ! brew tap | grep -q "isen-ng/dotnet-sdk-versions"; then
-    echo "  Adding dotnet-sdk-versions tap..."
-    brew tap isen-ng/dotnet-sdk-versions >/dev/null
-fi
-
-# Get the latest 3 LTS major versions (even numbers only)
-LTS_MAJORS=$(brew search dotnet-sdk | grep -oE 'dotnet-sdk[0-9]+$' | grep -oE '[0-9]+$' | awk '$1 % 2 == 0' | sort -u -n | tail -2)
-
-# Install each LTS version (latest patch auto-selected)
-while read -r major; do
-    [[ -z "$major" ]] && continue
-    brew_install --cask "dotnet-sdk${major}"
-done <<< "$LTS_MAJORS"
-
-echo "✓ .NET LTS SDKs installed"

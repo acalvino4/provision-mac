@@ -5,8 +5,5 @@
     "source.fixAll.shellcheck": "explicit"
   },
   "shellcheck.exclude": ["1091"],
-  "shellcheck.customArgs": ["-s", "bash"],
-  "shellcheck.ignorePatterns": {
-    "config/rock-sudoers": true
-  }
+  "shellcheck.customArgs": ["-s", "bash"]
 }
