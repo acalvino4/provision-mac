@@ -64,5 +64,5 @@ fi
 
 read -rp "Would you like to reboot (y/n)? " REBOOT
 if [[ $REBOOT =~ ^[Yy] ]]; then
-    reboot
+    sudo reboot
 fi

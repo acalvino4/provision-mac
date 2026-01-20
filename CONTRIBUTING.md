@@ -46,3 +46,4 @@ Note that these tools will give some false positives - feel free to ignore their
 - test vim undo, copy/paste clipboard
 - See if there is a way to include user-specific vim plugins with this setup
 - proper order of bin dirs in /etc/paths
+- audit vscode extension list
