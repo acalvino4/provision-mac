@@ -44,6 +44,6 @@ Note that these tools will give some false positives - feel free to ignore their
 - setup proper merge restrictions in BB
 - Investigate https://github.com/mrzool/bash-sensible and https://github.com/tpope/vim-sensible for possible merging with our configs
 - test vim undo, copy/paste clipboard
-- See if there is a way to include user-specific vim plugins with this setup
+- Test user-specific vim plugin inclusions / test conflicts (i.e. themes)
 - proper order of bin dirs in /etc/paths
 - audit vscode extension list

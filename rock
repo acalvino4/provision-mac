@@ -11,6 +11,7 @@ echo_exit() {
 }
 
 [[ $OSTYPE != darwin* ]] && echo_exit "This executable only supports macOS, not $OSTYPE." 1
+[[ $(uname -m) != "arm64" ]] && echo_exit "This executable only supports apple silicon macs." 1
 
 # Get installation directory
 ROCK_DIR=$(dirname "$(realpath "$0")")

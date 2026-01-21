@@ -6,7 +6,7 @@
 
 ### Installation
 
-This tool supports modern macOS.
+This tool supports modern macOS (apple silicon only).
 
 To install, just run this command:
 
@@ -30,7 +30,9 @@ No need to come up with your own aliases, if there is a tool you use often, chan
 
 Enabling a plugin is as simple as `omz plugin enable <name>`. You'll do this based on what tools you run - for example, if you have a php app you'll probably use the `composer` plugin. Some of these are enabled by default. [Browse availible plugins here](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
 
-### Vim keybindings
+### Vim
+
+#### Keybindings
 
 This module loads a robust vim config - besides configuring many nice things that you don't even have to think about, it initializes the following non-standard (but common) keybindings:
 
@@ -44,3 +46,17 @@ This module loads a robust vim config - besides configuring many nice things tha
 * B  - move to beginning of line
 * E  - move to end of line
 * L  - toggle line numbers (for copying with a mouse selection from a remote)
+
+#### Plugins
+
+You can also add your own vim plugins. Create `~/.vim/personal-plugins.vim` and list your plugins (one per line):
+
+```vim
+tpope/vim-surround
+author/repo-name
+...
+```
+
+Run `rock update:vim` after modifying the file for changes to take effect.
+
+Browse [VimAwesome](https://vimawesome.com/) or search github for available plugins.

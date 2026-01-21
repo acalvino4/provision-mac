@@ -94,6 +94,19 @@ call plug#begin($VIM_DIR . '/plugged')
   Plug 'tomasiser/vim-code-dark'
   Plug 'jiangmiao/auto-pairs'
 
+  " Source personal plugins if the file exists
+  if filereadable($VIM_DIR . '/personal-plugins.vim')
+    for line in readfile($VIM_DIR . '/personal-plugins.vim')
+      " Skip empty lines and comments
+      if line =~ '^\s*$' || line =~ '^\s*"'
+        continue
+      endif
+      " Trim whitespace and wrap in Plug command
+      let plugin = substitute(line, '^\s*\|\s*$', '', 'g')
+      execute 'Plug ' . string(plugin)
+    endfor
+  endif
+
 call plug#end()
 
 " }}}
