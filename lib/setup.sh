@@ -5,6 +5,8 @@ source "$ROCK_DIR"/lib/homebrew.sh
 
 source "$ROCK_DIR"/lib/brew-followup.sh
 
+source "$ROCK_DIR"/lib/utils.sh
+
 # Additional ddev setup
 mkcert -install
 
@@ -15,7 +17,8 @@ mkcert -install
 VSCODE_SETTINGS="$ROCK_DIR"/config/.vscode/settings.json
 VSCODE_USER_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
 if [[ -f $VSCODE_USER_SETTINGS ]]; then
-    jq -s '.[0] * .[1]' "$VSCODE_SETTINGS" "$VSCODE_USER_SETTINGS" >/tmp/vscode_settings
+    VSCODE_USER_CLEAN=$(json_strip_trailing_commas "$VSCODE_USER_SETTINGS")
+    jq -s '.[0] * .[1]' "$VSCODE_SETTINGS" "$VSCODE_USER_CLEAN" >/tmp/vscode_settings
     sudo cp /tmp/vscode_settings "$VSCODE_USER_SETTINGS"
 else
     sudo mkdir -p "$(dirname "$VSCODE_USER_SETTINGS")"

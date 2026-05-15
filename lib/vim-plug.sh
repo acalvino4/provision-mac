@@ -13,7 +13,7 @@ vim -E -s -u "$ROCK_DIR/config/vimrc" +PlugInstall +qall
 set -e
 
 # Link vim config
-INSTALL_VIMRC=$(get_option vimrc)
+INSTALL_VIMRC=$(get_rock_option vimrc)
 if $INSTALL_VIMRC; then
     printf '\n' >>~/.vimrc
     sed -i '' "1s-^-let \$VIM_DIR='$VIM_DIR' \" Managed by rock\n-g" ~/.vimrc
